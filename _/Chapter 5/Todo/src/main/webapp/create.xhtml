@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title><h:outputText value="#{msgs.pageTitle}"/></title>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"></link>
+        <link rel="stylesheet" href="style.css"></link>
+    </head>
+    <body>
+        <h:form><link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"></link>
+
+            <div class="container">
+                <div class="header">
+                    <ul class="nav nav-pills pull-right">
+                        <li class="active"><a href="index.html"><h:outputText value="#{msgs.homeLabel}"/></a></li>
+                    </ul>
+
+                    <h3 class="text-muted"><h:outputText value="#{msgs.applicationName}"/></h3>
+                </div>
+
+                <div class="jumbotron">
+                    <h1><h:outputText value="#{msgs.subTitle}"/></h1>
+                    <p class="lead"><h:outputText value="#{msgs.createLeader}"/></p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h:panelGrid columns="3">
+
+                            <h:outputText value="#{msgs.descriptionLabel}"/>
+                            <h:inputText id="description" value="#{todoController.todo.description}" label="Description">
+                                <f:validateLength minimum="2" maximum="250" />
+                            </h:inputText>
+                            <h:message style="margin-left:15px; padding:5px;" class="alert alert-danger" for="description"/>
+                        </h:panelGrid>
+                        <p style="margin-top:20px;" class="pull-right">
+                            <h:commandButton  class="btn btn-primary" type="submit" id="create" value="#{msgs.createButton}"
+                                              action="#{todoController.persist}"/>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="footer">
+                    <p><h:outputText value="#{msgs.copyright}"/></p>
+                </div>
+            </div>
+        </h:form>
+    </body>
+</html>
